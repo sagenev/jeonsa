@@ -1,0 +1,45 @@
+
+[
+    { 
+        "id":1,
+        "type":1,
+        "name":"rut",
+        "label":"Rut",
+        "value":""
+
+    },
+    { 
+        "id":2,
+        "type":1,
+        "name":"nombre",
+        "label":"Nombre",
+        "value":"",
+        "validador":[
+            {
+                "type":"required"
+            },
+            {
+                "type":"trim"
+            },
+            {
+                "type":"strict"
+            }
+        
+        ]
+       
+    },
+    { 
+        "id":3,
+        "type":3,
+        "name":"fecha",
+        "label":"Fecha",
+        "value":"",
+        "validador":[
+            {
+                "type":"fecha"
+            }
+          
+        ]
+    }
+
+]
