@@ -33,11 +33,11 @@ export const Inscripciones = () => {
     return (
             <MainCard title="Inscripciones">
                     {
-                    isLoadingcampeonatos&&isLoadingcategorias&&isLoadingcategoriasAlumnos?
+                    isLoadingcampeonatos?
                     <CircularProgress/>
                     :
                     <>
-                    <FormInscripciones campeonatos={campeonatos} categorias={categorias} categoriasAlumnos={categoriasAlumnos} />
+                    <FormInscripciones campeonatos={campeonatos.data} categorias={categorias} categoriasAlumnos={categoriasAlumnos} />
                     </>
                     
                    }

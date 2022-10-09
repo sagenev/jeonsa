@@ -9,6 +9,8 @@ import { useMutation, useQueryClient } from 'react-query';
 import { llamadaApi } from 'api/reqApi';
 import { SnackComponent } from 'components/theme/SnackComponent';
 import ListadoEquipos from './ListadoEquipos';
+import AlertClose from 'components/theme/AlertClose';
+import moment from 'moment'
 
 // validaciones del formulario
 const validar = yup.object().shape({
@@ -64,6 +66,12 @@ export const FormInscripciones = ({ campeonatos, categorias, categoriasAlumnos }
 
     const [participantes, setparticipantes] = useState([]);
 
+    const [campeonatoSeleccionado, setcampeonatoSeleccionado] = useState({
+        fec_ini_ins: '',
+        fec_ter_ins: '',
+        fec_inicio: ''
+    });
+
     const cancelarProceso = () => {
         setenProceso(false);
         setselectedCategoria(false);
@@ -80,7 +88,7 @@ export const FormInscripciones = ({ campeonatos, categorias, categoriasAlumnos }
     // para guardar la inscripción
     const { mutate } = useMutation(guardarInscripcion, {
         onSuccess: (res) => {
-             queryClient.invalidateQueries('getParticipantesByIdCampeonato');
+            queryClient.invalidateQueries('getParticipantesByIdCampeonato');
             if (res.data === 1 || res.data === 2) {
                 if (res.data === 1) {
                     setSnackMensaje({
@@ -162,10 +170,20 @@ export const FormInscripciones = ({ campeonatos, categorias, categoriasAlumnos }
                                                     onBlur={form.handleBlur}
                                                     onChange={(e) => {
                                                         form.setFieldValue('campeonato', e.target.value);
+                                                        for (let i = 0; i < campeonatos.length; i += 1) {
+                                                            if (campeonatos[i].id === e.target.value) {
+                                                                setcampeonatoSeleccionado({
+                                                                    fec_ini_ins: campeonatos[i].fec_ini_ins,
+                                                                    fec_ter_ins: campeonatos[i].fec_ter_ins,
+                                                                    fec_inicio: campeonatos[i].fec_inicio
+                                                                });
+                                                            }
+                                                        }
+                                                        // setcampeonatoSeleccionado(campeonatos.map(x => x.id === e.target.value))
                                                         setenProceso(true);
                                                     }}
                                                 >
-                                                    {campeonatos.data.map((campeonato) => (
+                                                    {campeonatos.map((campeonato) => (
                                                         <MenuItem key={campeonato.id} value={campeonato.id}>
                                                             {campeonato.nom}
                                                         </MenuItem>
@@ -182,6 +200,29 @@ export const FormInscripciones = ({ campeonatos, categorias, categoriasAlumnos }
                                             </Grid>
                                         ) : null}
                                     </Grid>
+
+                                    {enProceso ? (
+                                            <>
+                                            <Grid container spacing={2} mt={0.1}>
+                                                <Grid item xs={12} md={6} lg={6}>
+                                                    <AlertClose
+                                                        defaultOpen
+                                                        mensaje={`Término de inscripciones ${moment(campeonatoSeleccionado.fec_ter_ins).format("DD-MM-YYYY")}`}
+                                                        severity="info"
+                                                        variant="filled"
+                                                    />
+                                                </Grid>
+                                                <Grid item xs={12} md={6} lg={6}>
+                                                    <AlertClose
+                                                        defaultOpen
+                                                        mensaje={`Inicio de campeonato ${moment(campeonatoSeleccionado.fec_inicio).format("DD-MM-YYYY")}`}
+                                                        severity="info"
+                                                        variant="filled"
+                                                    />
+                                                </Grid>
+                                            </Grid>
+                                            </>
+                                        ) : null}
 
                                     {enProceso ? (
                                         <>
@@ -386,7 +427,9 @@ export const FormInscripciones = ({ campeonatos, categorias, categoriasAlumnos }
                                         <>
                                             <Grid container spacing={1}>
                                                 <Grid item xs={12} md={12} lg={12} mb={2} mt={2}>
-                                                    <Divider textAlign="left">LISTADO DE TUS EQUIPOS REGISTRADOS EN ESTE CAMPEONATO</Divider>
+                                                    <Divider textAlign="left">
+                                                        LISTADO DE TUS EQUIPOS REGISTRADOS EN ESTE CAMPEONATO
+                                                    </Divider>
                                                 </Grid>
                                             </Grid>
                                             <Grid container spacing={1} mt={2} style={{ boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px' }}>

@@ -6,7 +6,6 @@ const volverMostrar = async(rut)=>{
 }
 
 const inhabilitarMensajeAyuda = async(rut)=>{
-    console.log(rut)
     const inhabilitarMensajeAyuda = await llamadaApi.post('/controller/userController',{inhabilitarMensajeAyudaData:rut})
     return inhabilitarMensajeAyuda;
 }

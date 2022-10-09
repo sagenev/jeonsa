@@ -298,7 +298,7 @@ export const FormAgregarAlumno = ({ hayQueEditar,sethayQueEditar }) => {
             </Grid>
 
             <Grid container spacing={1} mt={1}>
-                <Grid item xs={3} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={3}>
                     <FormControl fullWidth size="small" error={formik.touched.sex && Boolean(formik.errors.sex)}>
                         <InputLabel>Sexo</InputLabel>
                         <Select
@@ -321,7 +321,7 @@ export const FormAgregarAlumno = ({ hayQueEditar,sethayQueEditar }) => {
                         <FormHelperText>{formik.touched.sex && formik.errors.sex}</FormHelperText>
                     </FormControl>
                 </Grid>
-                <Grid item xs={3} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={3}>
                     <FormControl fullWidth size="small" error={formik.touched.gra && Boolean(formik.errors.gra)}>
                         <InputLabel>Grado</InputLabel>
                         <Select
@@ -347,7 +347,7 @@ export const FormAgregarAlumno = ({ hayQueEditar,sethayQueEditar }) => {
                         <FormHelperText>{formik.touched.gra && formik.errors.gra}</FormHelperText>
                     </FormControl>
                 </Grid>
-                <Grid item xs={3} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={3}>
                     <TextField
                         type="date"
                         fullWidth
@@ -368,7 +368,7 @@ export const FormAgregarAlumno = ({ hayQueEditar,sethayQueEditar }) => {
                         }}
                     />
                 </Grid>
-                <Grid item xs={3} md={3} lg={3}>
+                <Grid item xs={6} md={3} lg={3}>
                     <Tooltip title="La categoría se asigna automáticamente basándose en la fecha de nacimiento">
                     <FormControl fullWidth size="small" error={formik.touched.cat && Boolean(formik.errors.cat)}>
                         <InputLabel>Categoría</InputLabel>

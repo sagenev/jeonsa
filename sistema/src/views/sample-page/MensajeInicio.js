@@ -19,6 +19,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useFormik } from 'formik';
 import { useMutation, useQuery } from 'react-query';
 import { inhabilitarMensajeAyuda, volverMostrar } from 'helpers/user';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 
 
@@ -89,7 +90,7 @@ export default function MensajeInicio() {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title" style={{ fontSize: '17px', color: '#63034A' }}>
-                    {state.nom_session}, bienvenido/a al sistema de adminsitración para campeonatos JEON-SA
+                    {state.nom_session}, bienvenido/a al sistema de administración para campeonatos JEON-SA
                 </DialogTitle>
                 <DialogContent>
                     <Grid container spacing={0}>
@@ -101,14 +102,13 @@ export default function MensajeInicio() {
                         </Grid>
                         <Grid item sm={12} xs={12} md={12} lg={12} mt={1}>
                             <Typography style={{ fontSize: '17px', color: '#63034A' }} variant="subtitle1" gutterBottom component="div">
-                                ¡Primero, crea tu escuela!
+                                ¡Tu escuela ya está creada!
                             </Typography>
                             <Typography variant="body1" style={{ color: '#050505' }} gutterBottom component="div">
-                                Esto es primordial para poder interactuar con el resto del sistema, si aún no has creado y registrado tu
-                                escuela, esto es lo primero que te recomendamos hacer, solo tienes que ir al menú izquierdo y busca el
+                                Esto lo hiciste cuando te registraste en el sistema, puedes cambiar el nombre, agregar el teléfono o la dirección de esta, solo tienes que ir al menú izquierdo y busca el
                                 siguiente icono <SchoolIcon /> (Mi escuela) luego en el menú que se despliega busca este icono{' '}
-                                <AddBusinessIcon />
-                                (Agregar escuela) sigue los pasos del formulario para registrar tu escuela.
+                                <SettingsIcon />
+                                (Administrar escuela) Ahí puedes editar todos los datos correspondientes a tu escuela.
                             </Typography>
                         </Grid>
                         <Grid item sm={12} xs={12} md={12} lg={12} mt={1}>
@@ -116,8 +116,8 @@ export default function MensajeInicio() {
                                 ¡Segundo, registra a tus alumnos!
                             </Typography>
                             <Typography variant="body1" style={{ color: '#050505' }} gutterBottom component="div">
-                                ¿Ya registraste tu escuela?, ahora puedes registrar a los alumnos que asisten a ella y esto es lo que te
-                                recomendamos hacer ahora. Para esto solo tienes que ir al menú izquierdo en busca del siguiente icono{' '}
+                                ¿Ya está lista tu escuela?, ahora puedes registrar a los alumnos que asisten a ella, esto es lo que te
+                                recomendamos hacer lo antes posible. Para esto solo tienes que ir al menú izquierdo en busca del siguiente icono{' '}
                                 <PeopleAltIcon />
                                 (Mis alumnos) una vez se despliegue el menú debes buscar este icono <PersonAddIcon />
                                 (Agregar alumno) este te llevará al formulario donde podrás registrar uno por uno a todos tus alumnos.

@@ -48,7 +48,7 @@ export const FormAgregarCampeonato = ({ hayQueEditar = { state: false, data: [] 
     // para guardar la esuela
     const { mutate } = useMutation(guardarCampeonato, {
         onSuccess: (res) => {
-            console.log(res)
+            // console.log(res)
             queryClient.invalidateQueries('getcampeonatos');
             if (res.data === 1 || res.data === 2) {
                 if (res.data === 1) {
@@ -101,7 +101,7 @@ export const FormAgregarCampeonato = ({ hayQueEditar = { state: false, data: [] 
                 idEditar
             };
 
-            console.log(data);
+            // console.log(data);
              mutate(data);
              resetForm();
         }

@@ -13,7 +13,7 @@ export default  function ThemeRoutes({data,dataPer}) {
 
   // console.log(data)
   // console.log(dataPer)
-  return  useRoutes(routes(1,dataPer.permiso),config.basename)
+  return  useRoutes(routes(data,dataPer.permiso),config.basename)
   // return  useRoutes(routes(1),config.basename)
 
 }

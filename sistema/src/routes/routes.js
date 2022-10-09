@@ -40,13 +40,13 @@ const routes =(tieneSession,permiso)=>[
     },
     {
         path: '/',
-        element: tieneSession ===1 ? <MainLayout />:<Navigate to='/jeonsa/sistemaJeonsa'/>,
+        element: tieneSession ===1 ? <MainLayout />:<Navigate to='/'/>,
         // element: <MainLayout />,
         // ADME2Z2V adm  INSzNjk9 usr
         children: [
             {
                 path: '/inicio',
-                element: <Inicio />
+                element: permiso==='ADME2Z2V'? <CrearCampeonato />:<MisAlumnos />
             },
             {
                 path: '/administrarEscuela',
@@ -58,7 +58,7 @@ const routes =(tieneSession,permiso)=>[
             },
             {
                 path: '/crearCampeonato',
-                element: permiso==='ADME2Z2V'? <CrearCampeonato />:<Navigate to='/jeonsa/sistemaJeonsa'/>
+                element: permiso==='ADME2Z2V'? <CrearCampeonato />:<Navigate to='/'/>
             },
             {
                 path: '/inscripciones',

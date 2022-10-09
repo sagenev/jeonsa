@@ -211,7 +211,6 @@ export default function ListaCampeonatos({ sethayQueEditar }) {
                 }else if(moment(params.row.fec_inicio)<moment(params.row.fecha_hoy)){
                     estado = "Términado";
                 }else{
-                    console.log(params.row)
                     estado="todo mal"
                 }
                 return estado;

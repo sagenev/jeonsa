@@ -65,14 +65,14 @@ const menuUser = {
             icon: EmojiEventsIcon,
             breadcrumbs: false,
             children: [
-                {
-                    id: 'misCampeonatos',
-                    title: 'Mis campeonatos',
-                    type: 'item',
-                    url: '/misCampeonatos',
-                    breadcrumbs: false,
-                    icon: MilitaryTechIcon,
-                },
+                // {
+                //     id: 'misCampeonatos',
+                //     title: 'Mis campeonatos',
+                //     type: 'item',
+                //     url: '/misCampeonatos',
+                //     breadcrumbs: false,
+                //     icon: MilitaryTechIcon,
+                // },
                 {
                     id: 'inscripciones',
                     title: 'Inscripciones',

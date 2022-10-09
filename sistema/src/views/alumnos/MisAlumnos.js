@@ -7,6 +7,7 @@ import { useQuery } from 'react-query';
 import { tieneEscuela } from 'helpers/escuela';
 import ListaAlumnos from './ListaAlumnos';
 import { useState } from 'react';
+import MensajeInicio from 'views/sample-page/MensajeInicio';
 
 
 export const MisAlumnos = () => {
@@ -39,7 +40,7 @@ export const MisAlumnos = () => {
                 </Grid>
             </Grid>
 
-          
+            <MensajeInicio/>
         </MainCard>
     );
 };
